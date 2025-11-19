@@ -21,19 +21,29 @@
 
 [项目核心亮点，1-3句话概括，如：兼顾效率与精度/代码简洁易复用/支持多场景适配等]。
 
-我们基于[依赖框架，如MMSegmentation v0.13.0]开发，确保兼容性和可扩展性。
+我们基于[依赖框架，如]开发，确保兼容性和可扩展性。
 
 🔥 欢迎Star关注，持续更新中！ 🔥
 
 
+## 下载资源汇总
+| 资源类型       | 说明                     | 下载链接                                                                 |
+|----------------|--------------------------|--------------------------------------------------------------------------|
+| 完整项目代码   | 包含训练/评估/演示脚本   | [GitHub仓库](https://github.com/你的用户名/你的仓库名)（直接克隆）        |
+| 预训练模型     | 各版本模型权重（含骨干网络） | 百度网盘（提取码：xxxx）\| 谷歌云盘 \| OneDrive                          |
+| 支持数据集     | 已整理好的训练/验证数据  | 百度网盘（提取码：yyyy）\| 官方源（[数据集官网链接]）\| 阿里云盘（提取码：zzzz） |
+| 训练配置文件   | 各场景下的完整配置（configs文件夹） | 随项目代码同步下载（无需单独下载）                                       |
+
+
+
 ## 安装
 
-For install and data preparation, please refer to the guidelines in [MMSegmentation v0.13.0](https://github.com/open-mmlab/mmsegmentation/tree/v0.13.0)。
+关于安装和数据准备
 
-Other requirements:
+其他依赖要求：
 ```pip install timm==0.3.2```
 
-An example (works for me): ```CUDA 10.1``` and  ```pytorch 1.7.1``` 
+推荐环境示例： ```CUDA 11.8``` and  ```pytorch 2.7``` 
 
 ```
 pip install torchvision==0.8.2
