@@ -1,66 +1,101 @@
-[![许可证](https://img.shields.io/badge/license-[你的许可证类型]-blue.svg)](LICENSE)
-![Python 版本](https://img.shields.io/badge/python-[版本号]-green.svg)
-![GitHub 星标](https://img.shields.io/github/stars/[你的用户名]/[仓库名]?style=social)
+# [你的项目名称]：[核心创新/场景描述]
 
-# [你的项目名称]：[简洁核心描述]
+本仓库提供了[研究领域，如医学影像分析/计算机视觉]工作的官方PyTorch实现，发表于**[期刊/会议名称，如Medical Image Analysis, 202X]**。该框架包含：
+- **[核心模块1]**：[模块功能，如基于提示的领域知识融合]
+- **[核心模块2]**：[模块功能，如跨任务注意力对齐机制]
+- 支持[数据类型，如多模态医学影像/自然图像]，适配[任务类型，如分割/分类/检测]
+- 基于[骨干网络，如Swin Transformer/ResNet]的分布式训练与推理 pipeline
 
-<div align="center">
-  <img src="./resources/cover.png" height="400">
-</div>
-<p align="center">
-  图1：[图片说明，如项目核心效果/架构图]
-</p>
+更多细节请参考 [论文]([你的论文链接]) 和 [项目主页]([你的项目主页链接])。
 
-### [项目主页]([你的仓库链接]) | [论文（可选）]([论文链接]) | [演示（可选）]([演示链接]) | [文档（可选）]([文档链接])
-
-**项目全称**：[用1-2句话详细描述项目目标、应用场景和核心优势]。<br>
-[作者1]([个人主页])、[作者2]([个人主页])、...、[最后作者]([个人主页])。<br>
-[发表会议/机构（可选）]。
-
-本仓库包含[项目名称]的官方[框架类型，如PyTorch]实现，包括训练、评估代码及预训练模型（如有）。
-
-[项目核心亮点，1-3句话概括，如：兼顾效率与精度/代码简洁易复用/支持多场景适配等]。
-
-我们基于[依赖框架，如]开发，确保兼容性和可扩展性。
-
-🔥 欢迎Star关注，持续更新中！ 🔥
-
-
-## 下载资源汇总
-| 资源类型       | 说明                     | 下载链接                                                                 |
-|----------------|--------------------------|--------------------------------------------------------------------------|
-| 完整项目代码   | 包含训练/评估/演示脚本   | [GitHub仓库](https://github.com/你的用户名/你的仓库名)（直接克隆）        |
-| 预训练模型     | 各版本模型权重（含骨干网络） | 百度网盘（提取码：xxxx）\| 谷歌云盘 \| OneDrive                          |
-| 支持数据集     | 已整理好的训练/验证数据  | 百度网盘（提取码：yyyy）\| 官方源（[数据集官网链接]）\| 阿里云盘（提取码：zzzz） |
-| 训练配置文件   | 各场景下的完整配置（configs文件夹） | 随项目代码同步下载（无需单独下载）                                       |
-
+> **[你的论文全称]**<br/>
+  [作者1]， [作者2], ..., [通讯作者]. <b>[期刊/会议名称]</b>, 202X.
 
 
 ## 安装
-
-关于安装和数据准备
-
-其他依赖要求：
-```pip install timm==0.3.2```
-
-推荐环境示例： ```CUDA 11.8``` and  ```pytorch 2.7``` 
-
+1. Clone the repository
+```bash
+git clone https:
 ```
-pip install torchvision==0.8.2
-pip install timm==0.3.2
-pip install mmcv-full==1.2.7
-pip install opencv-python==4.5.1.48
-cd SegFormer && pip install -e . --user
+2. Create a conda environment
+```bash
+conda create -n PerceptGuide python=3.10
+conda activate PerceptGuide
+```
+3. Install the dependencies
+```bash
+pip install -r requirements.txt
 ```
 
-## 许可证
-请查阅 LICENSE 文件。本项目仅可用于非商业用途（研究/评估），商业用途请联系：[你的邮箱/机构链接]。
+## Data
+```
+data
+├── [任务1，如classification]
+│   └── DatasetA
+│       ├── 类别0
+│       ├── 类别1
+│       ├── config.yaml
+│       ├── train.txt
+│       ├── val.txt
+│       └── test.txt
+└── [任务2，如segmentation]
+    └── DatasetB
+        ├── 图像文件夹
+        ├── 标签文件夹
+        ├── config.yaml
+        ├── train.txt
+        ├── val.txt
+        └── test.txt
+```
 
-## 引用说明
+## Dataset Licensing & Redistribution
+This repository bundles several [dataset domain, e.g., medical imaging] datasets. Their licenses and redistribution conditions are listed below. You can download the preprocessed datasets which allow for redistribution from [here]([data download link]).
+
+| Dataset | License | Redistribution | Access |
+|---------|---------|---------------|--------|
+|SAMUS1   |         |                |        |
+|SAMUS2   |         |                |        |
+|SAMUS3   |         |                |        |
+|SAMUS4   |         |                |        |
+|SAMUS5   |         |                |        |
+|SAMUS6   |         |                |        |
+|SAMUS7   |         |                |        |
+
+**Notes**
+
+- **Private-license datasets** (UDIAT, EchoNet-Dynamic) cannot be redistributed here; please request access through the provided links.  
+- **Unspecified/unclear-license datasets** (TN3K, TG3K, DDTI) may have redistribution restrictions. Download them directly from the source or contact the data owners for permission.
+
+ ## Training
+ ```
+ python -m torch.distributed.launch --nproc_per_node=[GPU数量] --master_port=1234 train.py --output_dir [输出路径] --[自定义参数]
+```
+
+## Testing
+ ```
+python -m torch.distributed.launch --nproc_per_node=[GPU数量] --master_port=1234 test.py --output_dir [输出路径] --[自定义参数]
+ ```
+
+## Pretrained Weights
+下载 [骨干网络 / 模型] 权重并放置在pretrained_ckpt/目录下：
+权重名称.pth
+目录结构示例：
+ ```
+pretrained_ckpt
+└── [权重名称.pth]
+ ```
+
+## Citation
 如果本项目对您的研究有帮助，请引用我们的论文：
-@inproceedings{[你的引用标识],
+ ```
+@article{[你的引用标识],
   title={[论文标题]},
-  author={[作者1] and [作者2] and ... and [最后作者]},
-  booktitle={[会议/期刊名称]},
-  year={[发表年份]}
+  author={[作者1] and [作者2] and ... and [通讯作者]},
+  journal={[期刊/会议名称]},
+  year={202X},
+  publisher={[出版社]}
 }
+ ```
+
+## Acknowledgements
+本仓库基于 Swin-Unet / 其他开源项目名称 开发，感谢原作者的开源贡献。
